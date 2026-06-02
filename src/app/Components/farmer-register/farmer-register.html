@@ -1,0 +1,132 @@
+<div class="container mt-4">
+
+    <div class="card shadow-sm">
+      <div class="card-header">
+        <h3>Farmer Registration</h3>
+      </div>
+  
+      <div class="card-body">
+  
+        <form (ngSubmit)="registerFarmer()">
+  
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" [(ngModel)]="farmer.name" name="name">
+            </div>
+  
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Father Name</label>
+              <input type="text" class="form-control" [(ngModel)]="farmer.fatherName" name="fatherName">
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Mobile Number</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="farmer.mobileNo"
+                name="mobileNo"
+                maxlength="10"
+                pattern="[0-9]{10}">
+            </div>
+  
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Family ID</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="farmer.familyId"
+                name="familyId"
+                maxlength="8">
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Gender</label>
+              <select class="form-select" [(ngModel)]="farmer.gender" name="gender">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+  
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Date Of Birth</label>
+              <input type="date" class="form-control" [(ngModel)]="farmer.dateOfBirth" name="dateOfBirth">
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">State</label>
+              <select class="form-select" [(ngModel)]="farmer.state" name="state" (change)="onStateChange()">
+                <option value="">Select State</option>
+                <option *ngFor="let state of states" [value]="state.stateName">
+                  {{ state.stateName }}
+                </option>
+              </select>
+            </div>
+  
+            <div class="col-md-6 mb-3">
+              <label class="form-label">District</label>
+              <select class="form-select" [(ngModel)]="farmer.district" name="district">
+                <option value="">Select District</option>
+                <option *ngFor="let district of districts" [value]="district.districtName">
+                  {{ district.districtName }}
+                </option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Pin Code</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="farmer.pinCode"
+                name="pinCode"
+                maxlength="6"
+                pattern="[0-9]{6}">
+            </div>
+  
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Land Area (Acres)</label>
+              <input type="number" class="form-control" [(ngModel)]="farmer.landArea" name="landArea">
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">Main Crop</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="farmer.mainCrop"
+              name="mainCrop">
+          </div>
+  
+          <button
+            type="submit"
+            class="btn btn-primary">
+  
+            Register Farmer
+  
+          </button>
+  
+        </form>
+  
+        @if (message) {
+          <div class="alert alert-success mt-3">
+            {{ message }}
+          </div>
+        }
+  
+      </div>
+    </div>
+  
+  </div>

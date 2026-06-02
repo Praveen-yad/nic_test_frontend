@@ -1,0 +1,47 @@
+<div class="container mt-4">
+
+    <h2 class="mb-4">Farmer Dashboard</h2>
+  
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-hover">
+  
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Father Name</th>
+            <th>Mobile</th>
+            <th>Family ID</th>
+            <th>Gender</th>
+            <th>DOB</th>
+            <th>State</th>
+            <th>District</th>
+            <th>Pin Code</th>
+            <th>Land Area</th>
+            <th>Main Crop</th>
+            <th>Created At</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          <tr *ngFor="let farmer of farmers">
+            <td>{{ farmer.farmerId }}</td>
+            <td>{{ farmer.name }}</td>
+            <td>{{ farmer.fatherName }}</td>
+            <td>{{ farmer.mobileNo }}</td>
+            <td>{{ farmer.familyId }}</td>
+            <td>{{ farmer.gender }}</td>
+            <td>{{ farmer.dateOfBirth }}</td>
+            <td>{{ farmer.state }}</td>
+            <td>{{ farmer.district }}</td>
+            <td>{{ farmer.pinCode }}</td>
+            <td>{{ farmer.landArea }}</td>
+            <td>{{ farmer.mainCrop }}</td>
+            <td>{{ farmer.createdAt | date:'dd-MM-yyyy HH:mm' }}</td>
+          </tr>
+        </tbody>
+  
+      </table>
+    </div>
+  
+  </div>
