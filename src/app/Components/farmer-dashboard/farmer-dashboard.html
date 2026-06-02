@@ -1,6 +1,50 @@
 <div class="container mt-4">
 
-    <h2 class="mb-4">Farmer Dashboard</h2>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2>Farmer Dashboard</h2>
+  
+      <div class="d-flex gap-2">
+
+        <select
+          class="form-select"
+          [(ngModel)]="selectedState"
+          (change)="onStateChange()">
+
+          <option value="">All States</option>
+
+          <option *ngFor="let state of states" [value]="state.stateName">
+            {{ state.stateName }}
+          </option>
+
+        </select>
+
+        <select
+          class="form-select"
+          [(ngModel)]="selectedDistrict"
+          (change)="searchFarmers()">
+
+          <option value="">All Districts</option>
+
+          <option *ngFor="let district of districts" [value]="district.districtName">
+            {{ district.districtName }}
+          </option>
+
+        </select>
+  
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by name"
+          [(ngModel)]="searchName"
+          (input)="searchFarmers()">
+  
+        <button
+          class="btn btn-outline-secondary"
+          (click)="resetFilters()">
+          Reset
+        </button>
+      </div>
+    </div>
   
     <div class="table-responsive">
       <table class="table table-bordered table-striped table-hover">
